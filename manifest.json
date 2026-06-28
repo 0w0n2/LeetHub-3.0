@@ -17,33 +17,17 @@
   "background": {
     "service_worker": "src/js/background.js"
   },
-  "permissions": [
-    "unlimitedStorage",
-    "storage"
-  ],
+  "permissions": ["unlimitedStorage", "storage"],
   "content_scripts": [
     {
-      "matches": [
-        "https://leetcode.com/*",
-        "https://leetcode.cn/*",
-        "https://github.com/*"
-      ],
-      "js": [
-        "src/js/interceptor.js"
-      ],
+      "matches": ["https://leetcode.com/*", "https://leetcode.cn/*"],
+      "js": ["src/js/interceptor.js"],
       "run_at": "document_start",
       "world": "MAIN"
     },
     {
-      "matches": [
-        "https://leetcode.com/*",
-        "https://leetcode.cn/*",
-        "https://github.com/*"
-      ],
-      "js": [
-        "src/js/leetcode.js",
-        "src/js/authorize.js"
-      ],
+      "matches": ["https://leetcode.com/*", "https://leetcode.cn/*", "https://github.com/*"],
+      "js": ["src/js/leetcode.js", "src/js/authorize.js"],
       "run_at": "document_idle"
     }
   ],
